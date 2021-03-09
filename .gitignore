@@ -1,11 +1,8 @@
 /build/
 /coverage/
-/dist/
-/include/
 /lib/enums.js
 /lib/nodegit.js
 /node_modules/
-/src/
 /test/coverage/
 /test/home/
 /test/repos/
@@ -16,7 +13,6 @@
 !/generate/input/*.json
 
 /generate/missing-tests.json
-/binding.gyp
 
 # Generated vendor files
 /vendor/openssl/
