@@ -38,13 +38,13 @@
     "node": ">= 6"
   },
   "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.5",
     "fs-extra": "^7.0.0",
     "got": "^10.7.0",
     "json5": "^2.1.0",
     "lodash": "^4.17.14",
     "nan": "^2.15.0",
     "node-gyp": "^4.0.0",
-    "node-pre-gyp": "^0.17.0",
     "ramda": "^0.25.0",
     "tar-fs": "^1.16.3"
   },
