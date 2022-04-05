@@ -7,7 +7,7 @@ try {
   fs.statSync(path.join(__dirname, "..", ".git"));
   isGitRepo = true;
 } catch (e) {
-  isGitRepo = false;
+  isGitRepo = true;
 }
 
 module.exports = {

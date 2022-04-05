@@ -47,21 +47,18 @@ const buildDarwin = async (buildCwd, macOsDeploymentTarget) => {
 
   await execPromise(`./Configure ${
     triplet
-  } no-shared enable-ec_nistp_64_gcc_128 no-ssl2 no-ssl3 no-comp --prefix="${
+  } no-shared enable-ec_nistp_64_gcc_128 no-ssl2 no-ssl3 no-comp no-tests --prefix="${
     extractPath
   }" --openssldir="${extractPath}" -mmacosx-version-min=${macOsDeploymentTarget}`, {
     cwd: buildCwd
   }, { pipeOutput: true });
 
-  await execPromise("make", {
+  await execPromise("make -j", {
     cwd: buildCwd
   }, { pipeOutput: true });
 
-  await execPromise("make test", {
-    cwd: buildCwd
-  }, { pipeOutput: true });
-
-  await execPromise("make install", {
+  // do not install docs, see https://github.com/openssl/openssl/issues/8170
+  await execPromise("make -j install_sw install_ssldirs", {
     cwd: buildCwd,
     maxBuffer: 10 * 1024 * 1024 // we should really just use spawn
   }, { pipeOutput: true });

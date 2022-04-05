@@ -1,14 +1,25 @@
 /.travis/
 /build/
 /examples/
-/generate/
 /guides/
 /lib/
 /test/
 /vendor/Release/
 
-!/include
-!/src
+/include
+/src
+
+# exclude openssl dir - it will be recreated and rebuilt
+/vendor/openssl
+
+# exclude files not used in compilation
+/vendor/libssh2/tests
+/vendor/libssh2/docs
+/vendor/libgit2/tests
+/vendor/libgit2/fuzzers
+
+# exclude previously generated pack
+nodegit-*.tgz
 
 .astylerc
 .editorconfig
