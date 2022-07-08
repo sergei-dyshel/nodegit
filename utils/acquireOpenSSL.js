@@ -81,15 +81,14 @@ const buildDarwin = async (buildCwd, macOsDeploymentTarget) => {
   }, { pipeOutput: true });
 
   // only build the libraries, not the tests/fuzzer or apps
-  await execPromise("make build_libs", {
+  await execPromise("make -j build_libs", {
     cwd: buildCwd
   }, { pipeOutput: true });
 
-  await execPromise("make test", {
-    cwd: buildCwd
-  }, { pipeOutput: true });
+  // do not install docs, see https://github.com/openssl/openssl/issues/8170
 
-  await execPromise("make install_sw", {
+
+  await execPromise("make -j install_sw", {
     cwd: buildCwd,
     maxBuffer: 10 * 1024 * 1024 // we should really just use spawn
   }, { pipeOutput: true });
