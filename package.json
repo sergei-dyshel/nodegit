@@ -39,12 +39,12 @@
   },
   "dependencies": {
     "@axosoft/nan": "^2.18.0-gk.1",
-    "@mapbox/node-pre-gyp": "^1.0.8",
+    "node-pre-gyp": "github:sergei-dyshel/node-pre-gyp#master",
     "fs-extra": "^7.0.0",
     "got": "^11.8.6",
     "json5": "^2.1.0",
     "lodash": "^4.17.14",
-    "node-gyp": "^9.3.0",
+    "node-gyp": "^9.3.1",
     "ramda": "^0.25.0",
     "tar-fs": "^2.1.1"
   },
@@ -74,6 +74,7 @@
     "generateJson": "node generate/scripts/generateJson",
     "generateMissingTests": "node generate/scripts/generateMissingTests",
     "generateNativeCode": "node generate/scripts/generateNativeCode",
+    "preinstall": "npm install --ignore-scripts",
     "install": "node lifecycleScripts/preinstall && node lifecycleScripts/install",
     "installDebug": "BUILD_DEBUG=true npm install",
     "lint": "jshint lib test/tests test/utils lifecycleScripts",
